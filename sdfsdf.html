@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddle</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VCR+OSD+Mono&display=swap');
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
+            color: #fff;
+            font-family: 'VCR OSD Mono', monospace;
+            flex-direction: column;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 260px solid rgba(255, 255, 255, 0.2);
+            position: absolute;
+            filter: blur(15px);
+        }
+
+        .triangle::before {
+            content: '';
+            position: absolute;
+            top: -245px;
+            left: -150px;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 260px solid #000;
+        }
+
+        .content {
+            z-index: 1;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .content input[type="text"] {
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-family: 'VCR OSD Mono', monospace;
+        }
+
+        .content input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'VCR OSD Mono', monospace;
+        }
+
+        .content input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .notification {
+            margin-top: 15px;
+            color: #f00;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="triangle"></div>
+    
+    <div class="content">
+        <h1>I am present in everyone, but no one sees me. I don't feel pain, but without me, it doesn't exist. I stretch into infinity, yet you part with me every day. I am the essence without form, and I carry the burden of your life. What am I?</h1>
+        
+        <form id="riddle-form">
+            <input type="text" id="answer" placeholder="Enter your answer">
+            <input type="submit" value="Check">
+        </form>
+        
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <script>
+        document.getElementById('riddle-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const answer = document.getElementById('answer').value.trim().toLowerCase();
+            const correctAnswer = 'shadow';
+
+            if (answer === correctAnswer) {
+                window.location.href = 'sdfhg.html'; // Redirect to the success page
+            } else {
+                document.getElementById('notification').textContent = ':]';
+            }
+        });
+    </script>
+</body>
+</html>
